@@ -1,8 +1,10 @@
-def Merger(firstname,lastname,middlename):
-    print (firstname + " " + middlename + " " + lastname)
+def Merger(firstname,lastname):
+    print (firstname + " " + lastname)
 
-firstname ="Tushar"
-lastname = "Varshney"
-middlename = input("What is your middle name?")
+firstname =""
+lastname = ""
+firstname = input("What is your first name?")
+lastname = input("What is your last name?")
 
-Merger(firstname,lastname,middlename)
+
+Merger(firstname,lastname)
