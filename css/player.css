@@ -1,0 +1,99 @@
+.music_container{
+    height: 100vh;
+    background-image: url("../images/Poster1.jpg");
+    background-position: center center;
+    display: flex;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+.musicplayer{
+    display: flex;
+    flex-direction: column;
+}
+.songimage{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.songimage img{
+    padding: 20px;
+    height: 350px;
+    width: 400px;
+}
+.songtitle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.songtitle h1{
+    color: #4CAF50;
+    font-family: Ubuntu;
+}
+#progress{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 10px;
+    background-color:royalblue;
+}
+#details{
+    color:white;
+}
+.controls{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.controls div{
+    width: 33.33%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.controls i{
+    font-size: 36px;
+    color: white;
+    padding: 20px;
+}
+.controls i:hover{
+    cursor: pointer;
+}
+.up {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+.inup{
+    width:40%;
+    display: flex;
+    flex-direction: row;
+}
+#details1{
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+#details1 p{
+    margin:0;
+    padding: 0 10px 0 0 ;
+    color:white;
+    font-family: Ubuntu;
+}
+#details2{
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+#details2 p{
+    margin:0;
+    padding: 0 0 0 10px;
+    color:white;
+    font-family: Ubuntu;
+}
+#myBar {
+    height: 10px;
+    border-radius: 0.5em;
+    background-color: #4CAF50;
+  }

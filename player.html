@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <title>Audio Player</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/player.css">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="music_container" >
+            <div class="musicplayer" >
+                <div class="songimage">
+                    <img id="si" src="images/Poster1.jpg">
+                </div>
+                <div>
+                    <div class="songtitle">
+                        <h1 id="songtitle">Song1.mp3</h1>
+                    </div>
+                    <div class="audio">
+                        <audio src="songs/Song1.mp3"></audio>
+                    </div>
+                    <div class="up">
+                        <div id="details1">
+                            <p></p>
+                        </div>
+                        <div class="inup">
+                            <div id="mybar"></div>
+                        </div>
+                        <div id="details2">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <div>
+                            <i id="pre" class="fa fa-backward" ></i>
+                            <i id="play-pause" class="fa fa-play" ></i>
+                            <i id="next" class="fa fa-forward" ></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+        var aud = $('audio')[0];
+        var currentsong=0;
+        var songs = ["songs/Song1.mp3","songs/Song2.mp3","songs/Song3.mp3"]
+
+        var songposter = ["images/Poster1.jpg","images/Poster2.jpg","images/Poster3.jpg"]
+        
+        $("#play-pause").on('click',function(){
+            if(aud.paused){
+                aud.play();
+                document.getElementById('play-pause').classList.remove('fa-play');
+                document.getElementById('play-pause').classList.add('fa-pause');
+
+            }
+            else{
+                aud.pause();
+                document.getElementById('play-pause').classList.remove('fa-pause');
+                document.getElementById('play-pause').classList.add('fa-play');
+            }
+        });
+
+        $("#next").on('click',function(){
+            currentsong++;
+            if(currentsong>2){
+                currentsong=0;
+                aud.src=songs[currentsong];
+                document.getElementById('si').src=songposter[currentsong];
+                document.getElementById('songtitle').innerHTML=songs[currentsong];
+                aud.play();
+                document.getElementById('play-pause').src='images/Pause.png'
+            }
+            else{
+                aud.src=songs[currentsong];
+                document.getElementById('si').src=songposter[currentsong];
+                document.getElementById('songtitle').innerHTML=songs[currentsong];
+                aud.play();
+                document.getElementById('play-pause').src='images/Pause.png'
+            }
+        });
+
+        $("#pre").on('click',function(){
+            currentsong--;
+            if(currentsong<0){
+                currentsong=2;
+                aud.src=songs[currentsong];
+                document.getElementById('si').src=songposter[currentsong];
+                document.getElementById('songtitle').innerHTML=songs[currentsong];
+                aud.play();
+                document.getElementById('play-pause').src='images/Pause.png'
+            }
+            else{
+                aud.src=songs[currentsong];
+                document.getElementById('si').src=songposter[currentsong];
+                document.getElementById('songtitle').innerHTML=songs[currentsong];
+                aud.play();
+                document.getElementById('play-pause').src='images/Pause.png'
+            }
+        });
+        aud.ontimeupdate = function(){
+            $('#mybar').css('width',aud.currentTime/aud.duration*100+'%')
+            if(aud.currentTime == aud.duration){
+                aud.src= songs[currentsong+1];
+                aud.play();
+                document.getElementById('si').src=songposter[currentsong+1];
+                document.getElementById('songtitle').innerHTML=songs[currentsong+1];
+            }
+            var songlength= parseInt(aud.duration/60,10)+":"+parseInt(aud.duration%60)
+            var currenttime= parseInt(aud.currentTime/60,10)+":"+parseInt(aud.currentTime%60)
+            $('#details1 p').text(currenttime)
+            $('#details2 p').text(songlength)
+        }
+       
+        </script>
+    </body>
+</html>
