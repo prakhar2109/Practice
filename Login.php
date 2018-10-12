@@ -64,7 +64,6 @@
 				<div class="error" ng-messages-include="messages.html"></div>
      
         </div>
-		
 		<label>Password</label>
 		<br>
 		<input id="pass" type="password" name="pass" ng-model="pass" required>
